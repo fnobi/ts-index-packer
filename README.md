@@ -1,28 +1,20 @@
 hinagata-npm-ts
 ----
 
-## setup build, test and release automation with circleci
+## Github Actions
 
-* generate key
+### workflows
 
-```bash
-$ ssh-keygen -m pem -C 'circleci' -f ci.hinagata-npm-ts.id_rsa
-```
+- branch: `develop`
+  - run test
 
-* paste public key in github `Settings / Deploy keys`
-* paste fingerprint in `.circleci/config.yml`
-* commit and push with `.circleci/config.yml`
-* duplicate branch with name `master-build` and push.
-* `Add Project` in circleci admin
-* paste private key in circleci `SSH Permissions`
-* add npm user token to circleci environment
-* add npm release workflow
+- branch: `master`
+  - run test
+  - build
+  - commit on `master-build` branch
+  - version tagging (from package.json)
+  - npm publish
 
-```yaml
-- npm_release:
-    filters:
-      tags:
-        only: /^v.*/
-      branches:
-        ignore: /.*/
-```
+### secrets
+
+- `NPM_TOKEN`: npm registry access token
