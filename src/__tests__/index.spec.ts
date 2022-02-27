@@ -1,4 +1,4 @@
-import { groupBy, padLeft } from '../src/';
+import { groupBy, padLeft } from '../';
 
 describe('group by', () => {
     it('integrate array with prop', () => {

@@ -1,6 +1,6 @@
 {
   "name": "hinagata-npm-ts",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "development typescript tools.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,30 +17,12 @@
   "author": "Fujisawa Shin",
   "license": "ISC",
   "dependencies": {
-    "typescript": "^3.7.2"
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.22",
-    "@types/node": "^12.12.7",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "tsconfig.json"
-      }
-    },
-    "testMatch": [
-      "**/__tests__/*.spec.+(ts|tsx|js)"
-    ]
+    "@types/jest": "^26.0.24",
+    "@types/node": "^14.0.23",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.5.6"
   }
 }
