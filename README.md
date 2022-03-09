@@ -1,4 +1,4 @@
-ts-indexer
+ts-index-packer
 ----
 
 ## Usage
