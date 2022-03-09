@@ -1,5 +1,10 @@
-function tsIndexer(files: string[]) {
-  const moduleName = "tsIndexer";
+type Options = {
+  files: string[];
+  moduleName?: string;
+};
+
+function tsIndexer(opts: Options) {
+  const { files, moduleName = "tsIndexer" } = opts;
   const fm: { [key: string]: string } = {};
   const imps = files
     .map((f, i) => {
