@@ -1,5 +1,5 @@
 import * as yargs from "yargs";
-import tsIndexer from ".";
+import tsIndexPacker from ".";
 
 async function main() {
   const argv = await yargs
@@ -31,7 +31,7 @@ async function main() {
     })
     .help().argv;
   const files = argv._.map(String);
-  const res = await tsIndexer({
+  const res = await tsIndexPacker({
     files,
     dest: argv.dest,
     moduleName: argv.module,
