@@ -1,4 +1,5 @@
 function tsIndexer(files: string[]) {
+  const moduleName = "tsIndexer";
   const fm: { [key: string]: string } = {};
   const imps = files
     .map((f, i) => {
@@ -9,10 +10,11 @@ function tsIndexer(files: string[]) {
       return `import ${varName} from "${fp}";`;
     })
     .join("\n");
-  const exp = `export default {${Object.entries(fm)
+  const vm = `const ${moduleName} = {${Object.entries(fm)
     .map(([key, varName]) => `${key}:${varName}`)
     .join(",")}}`;
-  return [imps, exp].join("\n");
+  const exp = `export default ${moduleName};`;
+  return [imps, vm, exp].join("\n");
 }
 
 export default tsIndexer;
