@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
-import tsIndexerCore, { TSIndexerOptions } from "./core";
+import tsIndexPackerCore, { TSIndexerOptions } from "./core";
 
-async function tsIndexer(opts: TSIndexerOptions & { dest?: string }) {
-  const body = tsIndexerCore(opts);
+async function tsIndexPacker(opts: TSIndexerOptions & { dest?: string }) {
+  const body = tsIndexPackerCore(opts);
   const { dest } = opts;
   if (dest) {
     await fs.writeFile(dest, body, { encoding: "utf8" });
@@ -10,4 +10,4 @@ async function tsIndexer(opts: TSIndexerOptions & { dest?: string }) {
   return body;
 }
 
-export default tsIndexer;
+export default tsIndexPacker;

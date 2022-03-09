@@ -8,8 +8,8 @@ export type TSIndexerOptions = {
   prefix?: string;
 };
 
-function tsIndexerCore(opts: TSIndexerOptions) {
-  const { files, home, moduleName = "tsIndexer", prefix = "ASSETS_" } = opts;
+function tsIndexPackerCore(opts: TSIndexerOptions) {
+  const { files, home, moduleName = "tsIndexPacker", prefix = "ASSETS_" } = opts;
   const fm: { [key: string]: string } = {};
   const imps = files
     .map((f, i) => {
@@ -27,4 +27,4 @@ function tsIndexerCore(opts: TSIndexerOptions) {
   return [imps, vm, exp].join("\n");
 }
 
-export default tsIndexerCore;
+export default tsIndexPackerCore;
