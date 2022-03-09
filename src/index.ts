@@ -1,19 +1,14 @@
-export function groupBy<T, P>(arr: T[], identifier: (val: T) => P) {
-  const m = new Map<P, T[]>();
-  arr.forEach(item => {
-    const prop = identifier(item);
-    const collection = m.get(prop);
-    if (collection) {
-      collection.push(item);
-    } else {
-      m.set(prop, [item]);
-    }
-  });
-  return m;
+function tsIndexer(files: string[]) {
+  const fm: { [key: string]: string } = {};
+  const imps = files
+    .map((f, i) => {
+      const fp = f;
+      const varName = `ASSETS_${i}`;
+      fm[i] = varName;
+      return `import ${varName} from "${fp}";`;
+    })
+    .join("\n");
+  return [imps, "export default " + JSON.stringify(fm)].join("\n");
 }
 
-export const padLeft = (num: number, count: number, glue = '0') => {
-  const str = num.toString();
-  if (str.length >= count) return str;
-  return (new Array(count).join(glue) + str).slice(-count);
-};
+export default tsIndexer;

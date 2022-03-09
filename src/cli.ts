@@ -1,15 +1,12 @@
 import * as yargs from "yargs";
-import { string } from "yargs";
+import tsIndexer from ".";
 
 async function main() {
-  const argv = await yargs
-    .option("files", {
-      type: "string",
-      description: "target files glob pattern.",
-      demandOption: true
-    })
-    .help().argv;
-  console.log("ts-indexer", argv, argv.files);
+  const argv = await yargs.help().argv;
+  const files = argv._;
+  const res = tsIndexer(files.map(String));
+  // TODO: dest指定がある場合は標準出力しない
+  console.log(res);
 }
 
 main();
