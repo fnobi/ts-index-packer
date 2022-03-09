@@ -13,17 +13,30 @@ async function main() {
         type: "string",
         demandOption: false,
         alias: "a"
+      },
+      prefix: {
+        type: "string",
+        demandOption: false,
+        alias: "p"
+      },
+      dest: {
+        type: "string",
+        demandOption: false,
+        alias: "d"
       }
     })
     .help().argv;
   const files = argv._.map(String);
-  const res = tsIndexer({
+  const res = await tsIndexer({
     files,
+    dest: argv.dest,
     moduleName: argv.module,
-    home: argv.home
+    home: argv.home,
+    prefix: argv.prefix
   });
-  // TODO: dest指定がある場合は標準出力しない
-  console.log(res);
+  if (!argv.dest) {
+    console.log(res);
+  }
 }
 
 main();
