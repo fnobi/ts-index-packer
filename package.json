@@ -1,5 +1,5 @@
 {
-  "name": "hinagata-npm-ts",
+  "name": "ts-indexer",
   "version": "0.0.0",
   "description": "development typescript tools.",
   "main": "dist/index.js",

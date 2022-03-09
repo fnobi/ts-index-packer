@@ -1,4 +1,4 @@
-hinagata-npm-ts
+ts-indexer
 ----
 
 ## Github Actions
