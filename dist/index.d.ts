@@ -1,5 +1,5 @@
 import { TSIndexerOptions } from "./core";
-declare function tsIndexer(opts: TSIndexerOptions & {
+declare function tsIndexPacker(opts: TSIndexerOptions & {
     dest?: string;
 }): Promise<string>;
-export default tsIndexer;
+export default tsIndexPacker;

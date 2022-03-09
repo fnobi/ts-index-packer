@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const core_1 = __importDefault(require("./core"));
-function tsIndexer(opts) {
+function tsIndexPacker(opts) {
     return __awaiter(this, void 0, void 0, function* () {
         const body = core_1.default(opts);
         const { dest } = opts;
@@ -24,5 +24,5 @@ function tsIndexer(opts) {
         return body;
     });
 }
-exports.default = tsIndexer;
+exports.default = tsIndexPacker;
 //# sourceMappingURL=index.js.map

@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = require("path");
 const stringUtil_1 = require("./lib/stringUtil");
-function tsIndexerCore(opts) {
-    const { files, home, moduleName = "tsIndexer", prefix = "ASSETS_" } = opts;
+function tsIndexPackerCore(opts) {
+    const { files, home, moduleName = "tsIndexPacker", prefix = "ASSETS_" } = opts;
     const fm = {};
     const imps = files
         .map((f, i) => {
@@ -20,5 +20,5 @@ function tsIndexerCore(opts) {
     const exp = `export default ${moduleName};`;
     return [imps, vm, exp].join("\n");
 }
-exports.default = tsIndexerCore;
+exports.default = tsIndexPackerCore;
 //# sourceMappingURL=core.js.map

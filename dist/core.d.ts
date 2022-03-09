@@ -4,5 +4,5 @@ export declare type TSIndexerOptions = {
     home?: string;
     prefix?: string;
 };
-declare function tsIndexerCore(opts: TSIndexerOptions): string;
-export default tsIndexerCore;
+declare function tsIndexPackerCore(opts: TSIndexerOptions): string;
+export default tsIndexPackerCore;
