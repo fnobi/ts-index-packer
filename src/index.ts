@@ -1,14 +1,17 @@
+import { relative } from "path";
+
 type Options = {
   files: string[];
   moduleName?: string;
+  home?: string;
 };
 
 function tsIndexer(opts: Options) {
-  const { files, moduleName = "tsIndexer" } = opts;
+  const { files, moduleName = "tsIndexer", home } = opts;
   const fm: { [key: string]: string } = {};
   const imps = files
     .map((f, i) => {
-      const fp = f;
+      const fp = home ? `~/${relative(home, f)}` : f;
       const key = i;
       const varName = `ASSETS_${key}`;
       fm[key] = varName;
